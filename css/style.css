@@ -1,0 +1,642 @@
+/* 一旦、全てリセット */
+* {
+  /* 外側余白→0 */
+  margin: 0;
+  /* 内側余白→0 */
+  padding: 0;
+  /* 「margin」「padding」を含めた幅・高さでサイズ調整 */
+  box-sizing: border-box;
+}
+
+/* <htmlタグ><bodyタグ>に基本設定適用 */
+html, body {
+  /* ページ全体の高さを100%にする */
+  height: 100%;
+  /* フォント設定 */
+  font-family:
+  /* Windows */
+  "MS PMincho",
+  "MS Mincho",
+  "Yu Mincho",
+  /* macOS */
+  "Hiragino Mincho ProN",
+  "Hiragino Mincho Pro",
+  /* Linux */
+  "IPA Mincho",
+  serif;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.fv .container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+/* ヘッダー[全体] */
+.header {
+  width: 100%;
+  /* 自由配置可能にする */
+  position: absolute;
+  /* 階層上げる */
+  z-index: 10;
+}
+/* ヘッダー内部のロゴ+ナビ */
+.header_inner {
+  /* 横並び */
+  display: flex;
+  /* 左右端に配置 */
+  justify-content: space-between;
+  /* 中央揃え(高さ) */
+  align-items: center;
+  margin-top: 75px;
+}
+/* ロゴ画像 */
+.logo img{
+  max-width: 80%;
+  height: auto;
+  padding-left: 45px;
+}
+.nav ul {
+  /* 横並び */
+  display: flex;
+  /* 中央揃え(高さ) */
+  align-items: center;
+  /* ⚫︎マーク消す */
+  list-style: none;
+}
+.nav a {
+  /* リンク下線消す */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.menu {
+  margin-right: 35px;
+  /* 文字サイズ */
+  font-size: 22px;
+  /* 文字カラー */
+  color: #fff;
+  /* 文字間隔 */
+  letter-spacing: 0.4em;
+}
+.menu:hover {
+  /* 下線 */
+  text-decoration: underline;
+  /* 下線の太さ */
+  text-decoration-thickness: 0.5px;
+}
+/* 予約ボタン */
+.btn {
+  /* 内側余白 */
+  padding: 12.5px 55px;
+  font-size: 22px;
+  /* 中央揃え(高さ) */
+  text-align: center;
+  /* 背景色 */
+  background: #B8A973;
+  /* 文字カラー */
+  color: #fff;
+  letter-spacing: 0.35px;
+  /* 線の太さ */
+  border: 1.25px solid #000;
+  /* 角丸 */
+  border-radius: 30px;
+  transition: background-color 0.2s, color 0.2s;
+}
+/* 予約ボタン(ホバー時) */
+.btn:hover {
+  /* 背景色→#B8A973 */
+  background: #B8A973;
+  /* 文字カラー */
+  color: #000;
+}
+
+/* ファーストビュー[全体] */
+.fv {
+  /* 中の要素を絶対配置(absolute) */
+  position: relative;
+  /* 枠からはみ出した部分を非表示 */
+  overflow: hidden;
+  min-width: 730px;
+  height: 100%;
+  max-height: 900px;
+  min-height: 900px;
+  /* 背景画像 */
+  background: url('../images/kv.png') no-repeat center center/cover;
+}
+
+/* ファーストビュー内テキスト[右下キャッチコピー] */
+.catch {
+  position: absolute;
+  bottom: 18%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1240px;
+  /* 文字サイズ */
+  font-size: 40px;
+  /* 文字カラー */
+  color: #fff;
+  /* 文字の太さ */
+  font-weight: 100;
+  /* 文字間隔 */
+  letter-spacing: 0.38em;
+  /* 行間 */
+  line-height: 1.3;
+  padding-left: 45px;
+  /* 外側余白(下端) */
+  margin-bottom: 32px;
+}
+/* ファーストビュー内のテキスト② */
+.subtext {
+  position: absolute;
+  bottom: 7.5%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1240px;
+  padding-left: 45px;
+  /* 文字サイズ */
+  font-size: 28px;
+  /* 文字カラー */
+  color: #fff;
+  /* 文字の太さ */
+  font-weight: 100;
+  /* 文字間隔 */
+  letter-spacing: 0.48em;
+  /* 行間 */
+  line-height: 1.8;
+}
+/* ひらがな部分テキスト */
+.kana {
+  /* 文字サイズ */
+  font-size: 0.8em;
+  /* 行間 */
+  line-height: 1.8;
+}
+.mobile_br {
+  /* PC画面時、該当箇所改行しない */
+  display: none;
+}
+/* 右下テキスト */
+.scroll {
+  /* (fv)を基準とした配置 */
+  position: absolute;
+  /* 相対配置(下端) */
+  bottom: 7.5%;
+  width: 100%;
+  max-width: 1240px;
+  padding-right: 55px;
+  /* 縦書き(←方向) */
+  writing-mode: vertical-rl;
+  /* 文字サイズ */
+  font-size: 14px;
+  /* 文字カラー */
+  color: #fff;
+  /* 文字間隔 */
+  letter-spacing: 8px;
+}
+/* 右下テキスト② */
+.scroll::after {
+  display: block;
+  content: "";
+  width: 1px;
+  height: 190px;
+  background-color: #fff;
+  margin: 120px -8px 0 0;
+}
+
+@media screen and (max-width: 1239px) {
+  .conetainer header_inner .nav .scroll{
+      display: none;
+  }
+  .nav {
+    display: none;
+  }
+  .scroll {
+    display: none;
+  }
+  .logo img{
+      max-width: 100%;
+      min-width: 270px;
+      display: block;
+  }
+  /* レスポンス時、該当箇所改行 */
+  .mobile_br {
+      display: unset;
+  }
+  .catch {
+    position: absolute;
+    bottom: 25%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 120%;
+    max-width: 1240px;
+    /* 文字サイズ */
+    font-size: 50px;
+    /* 文字カラー */
+    color: #fff;
+    /* 文字の太さ */
+    font-weight: 100;
+    /* 文字間隔 */
+    letter-spacing: 0.38em;
+    /* 行間 */
+    line-height: 1.3;
+    /* 外側余白(下端) */
+    margin-bottom: 45px;
+  }
+  .subtext {
+    position: absolute;
+    bottom: 7.5%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 120%;
+    max-width: 1240px;
+    /* 文字サイズ */
+    font-size: 35px;
+    /* 文字カラー */
+    color: #fff;
+    /* 文字の太さ */
+    font-weight: 100;
+    /* 文字間隔 */
+    letter-spacing: 0.48em;
+    /* 行間 */
+    line-height: 1.6;
+  }
+}
+
+/* セクション間余白 */
+.about {
+  /* 枠からはみ出した部分を非表示 */
+  overflow: hidden;
+  height: 105vh;
+  max-height: 1000px;
+  min-height: 1000px;
+  width: 100%;
+  min-width: 730px;
+  /* 背景色 */
+  background-color: #fff;
+}
+/* 紹介セクション内 */
+.about_inner {
+  /* 横並び */
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  /* 中央揃え(高さ) */
+  align-items: center;
+  /* 左右端に配置 */
+  justify-content: center;
+}
+.about_text, .about_images {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:0 55px;
+}
+.about_text {
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+/* 左側テキスト(タイトル) */
+.about_title {
+  width: 250px;
+  height: auto;
+  /* 下端余白→30px */
+  margin-bottom: 70px;
+}
+/* 左側テキスト */
+.about_description {
+  white-space: nowrap;
+  /* 文字サイズ */
+  font-size: clamp(12px, 3vw, 20px);
+  /* 文字カラー */
+  color: #333;
+  /* 行間 */
+  line-height: 2.1;
+  letter-spacing: 6px;
+}
+/* 右側写真 */
+.about_images {
+  /* 中の要素を絶対配置(absolute) */
+  position: relative;
+  justify-content: flex-end;
+  height: auto;
+}
+/* 右側写真[大] */
+.main_image {
+  max-width: 80%;
+  /* 親要素(about-images)いっぱいに広げる */
+  width: 80%;
+  /* 高さを自動設定(縦横比を保ったまま縮小拡大する) */
+  height: auto;
+}
+/* 右側写真[小] */
+.sub_image {
+  /* (about-images)を基準とした配置にする */
+  position: absolute;
+  /* 幅 */
+  max-width: 200px;
+  width: 200px;
+  height: auto;
+  /* 相対配置(左端) */
+  left: 75px;
+  /* 相対配置(下端) */
+  bottom: -55px;
+  /* ドロップシャドウ(横ずれ・縦ずれ・半径・距離・色) */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.space {
+  letter-spacing: 8px;
+}
+
+@media screen and (max-width: 1239px) {
+  .about {
+      /* 枠からはみ出した部分を非表示 */
+      overflow: hidden;
+      height: 100%;
+      min-height: 1100px;
+      width: 100%;
+      min-width: 730px;
+      /* 背景色 */
+      background-color: #fff;
+  }
+  .about_inner {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      /* 横並び→縦並び */
+      flex-direction: column;
+      /* 各要素を中央揃え(高さ) */
+      align-items: center;
+      /* テキスト配置(中央揃え) */
+      text-align: center;
+      gap: 50px;
+  }
+  .about_text {
+      padding-top: 0px;
+      align-items: center;
+      text-align: center;
+  }
+  /* 左側テキスト(タイトル) */
+  .about_title {
+      width: 300px;
+      margin-bottom: 50px;
+  }
+  /* 左側テキスト */
+  .about_description {
+      white-space: nowrap;
+      /* 文字サイズ */
+      font-size: 40px;
+      /* 文字カラー */
+      color: #333;
+      /* 行間 */
+      line-height: 1.6;
+      letter-spacing: 10px;
+  }
+  /* 右側写真 */
+  .about_images {
+    justify-content: flex-end;
+    height: auto;
+  }
+  /* 右側写真[大] */
+  .main_image {
+    /* 中の要素を絶対配置(absolute) */
+    position: relative;
+    max-width: 600px;
+    /* 親要素(about-images)いっぱいに広げる */
+    width: 600px;
+    /* 高さを自動設定(縦横比を保ったまま縮小拡大する) */
+    height: auto;
+    margin: auto;
+    padding-left: 125px;
+  }
+  /* 右側写真[小] */
+  .sub_image {
+    /* (about-images)を基準とした配置にする */
+    position: absolute;
+    /* 幅 */
+    max-width: 200px;
+    width: 200px;
+    height: auto;
+    /* 相対配置(左端) */
+    left: 60px;
+    /* 相対配置(下端) */
+    bottom: -50px;
+    /* ドロップシャドウ(横ずれ・縦ずれ・半径・距離・色) */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+}
+
+/* お部屋案内セクション */
+.room {
+  min-width: 730px;
+  min-height: 1850px;
+  /* 内側余白 */
+  padding: 20px 55px;
+  /* 背景画像 */
+  background: url('../images/room_bg.png') no-repeat center center / cover;
+  height: auto;
+}
+/* お部屋案内ページ内 */
+.room_inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* 中の要素を絶対配置(absolute) */
+  position: relative;
+  /* 横幅限度 */
+  max-width: 1200pxpx;
+  margin: 150px auto 0;
+}
+/* 画像(右上) */
+.room_pattern {
+  /* room-innerを基準に絶対配置 */
+  position: absolute;
+  /* スケール */
+  width: 290px;
+  height: auto;
+  /* 上端余白 */
+  top: -80px;
+  /* 右端余白 */
+  right: -20px;
+  /* ポインタ変更 */
+  pointer-events: none;
+  /* アニメーション */
+  animation: float 4s ease-in-out infinite;
+}
+/* アニメーション */
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+/* お部屋案内ページテキスト[タイトルと概要] */
+.room_header {
+  /* 中央揃え(高さ) */
+  text-align: left;
+  /* 外側余白(下端) */
+  margin-bottom: 50px;
+}
+/* お部屋案内ページ内テキスト[タイトル] */
+.room_title01 {
+  /* 文字サイズ */
+  font-size: 32px;
+  /* 行間 */
+  line-height: 60px;
+  /* 文字間隔 */
+  letter-spacing: 10px;
+  /* 外側余白(下端) */
+  margin-bottom: 80px;
+  /* 文字カラー */
+  color: #000;
+}
+.room_title02 {
+  position: relative;
+  top: -4px;
+  font-size: 24px;
+  display: inline-block;
+}
+/* お部屋案内ページ内テキスト[概要] */
+.room_description {
+  /* 文字サイズ */
+  font-size: 20px;
+  /* 文字カラー */
+  color: #333;
+  /* 行間 */
+  line-height: 2;
+  /* 文字間隔 */
+  letter-spacing: 9.999px;
+}
+.wide_spacing {
+  letter-spacing: 11px;
+}
+.wide_spacing02 {
+  letter-spacing: 10px;
+}
+/* 部屋選択ボタンエリア */
+.room_tabs {
+  /* 横並び */
+  display: flex;
+  flex-wrap: wrap;
+  /* 左右端に配置 */
+  justify-content: space-between;
+  /* 各要素の間隔 */
+  gap: 1rem;
+  /* 外側余白(下端) */
+  margin-bottom: 10px
+}
+/* 各ボタン */
+.tab {
+  /* 拡大:⚪︎、縮小:⚪︎、拡大の比率⚪︎ */
+  flex: 1;
+  /* テキスト配置(中央揃え) */
+  text-align: center;
+  /* 内側余白 */
+  padding: 20px;
+  /* 文字サイズ */
+  font-size: 20px;
+  /* 背景色 */
+  background-color: #EDEBD7;
+  /* 文字間隔 */
+  letter-spacing: 10px;
+  /* ホバー時、カーソルを指マーク */
+  cursor: pointer;
+  /* 背景色をなめらかに変化させる */
+  transition: background-color 0.3s;
+}
+/* ホバー時のボタン変化 */
+.tab:hover {
+  /* 背景色 */
+  background-color: #B8A973;
+  /* 文字カラー */
+  color: #fff;
+}
+/* お部屋案内画像 */
+.room_visual_image {
+  /* ブロック要素 */
+  display: block;
+  /* スケール */
+  width: 100%;
+  /* 最大幅 */
+  max-width: 1500px;
+  /* 上下左右マージン */
+  margin: 0 auto 30px;
+  height: auto;
+}
+/* お部屋案内説明 */
+.room_content {
+  /* 横並び */
+  display: flex;
+  /* 横並び→縦並び */
+  flex-direction: column;
+  /* 左寄せ */
+  text-align: left;
+  /* 背景色 */
+  background-color: #fff;
+  /* ドロップシャドウ */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  /* 最大幅 */
+  max-width: 1500px;
+  /* 上下左右マージン */
+  margin: -120px auto 0;
+  /* 内側余白 */
+  padding: 40px;
+}
+/* お部屋案内説明[見出し] */
+.room_text h3 {
+  /* 文字サイズ */
+  font-size: 26px;
+  /* 文字間隔 */
+  letter-spacing: 13px;
+  /* 外側余白(上端) */
+  margin: 10px 0 20px;
+  /* 文字カラー */
+  color: #333;
+}
+/* お部屋案内説明[本文] */
+.room_text p {
+  /* 文字サイズ */
+  font-size: 19px;
+  /* 文字間隔 */
+  letter-spacing: 9px;
+  /* 外側余白(上端) */
+  margin-top: 25px;
+  /* 文字カラー */
+  color: #666;
+  /* 行間 */
+  line-height: 2;
+}
+
+/* スマホ用お部屋案内調整 */
+@media screen and (max-width: 1239px) {
+  .room {
+      height: auto;
+      min-height: 2000px;
+      max-height: 2000px;
+
+  }
+  .room_tabs {
+      /* 横並び→縦並び */
+      flex-direction: column;
+      /* 各要素の間隔 */
+      gap: 30px;
+      /* 外側余白(下端) */
+      margin-bottom: 40px;
+  }
+  .room {
+    height: 225vh;
+  }
+}
