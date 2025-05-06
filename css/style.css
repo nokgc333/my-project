@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-/* <htmlタグ><bodyタグ>に基本設定適用 */
+/* <htmlタグ><bodyタグ>基本設定 */
 html, body {
   /* ページ全体の高さを100%にする */
   height: 100%;
